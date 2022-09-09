@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"> 
+    <head>
+
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+
+        <title>Lessons Schedule</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular-1.7.5.min.js"></script>
+        <script src="js/lessons.js"></script>
+
+    </head>
+    <body ng-app="lessons" ng-controller="LessonsController">
+        
+        <h1>Расписание занятий в университете</h1>
+
+        <div ng-controller="getLessons" ng-show="lessonsList.length > 0">
+            <table id="lessonsTable" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th><h2>Наименование</h2></th>
+                        <th><h2>День недели</h2></th>
+                        <th><h2>Тип занятия</h2></th>
+                        <th><h2>Аудитория</h2></th>
+                        <th><h2>Время начала</h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="lesson in lessonsList">
+                        <td>{{lesson.title}}</td>
+                        <td>{{lesson.weekday}}</td>
+                        <td>{{lesson.type}}</td>
+                        <td>{{lesson.auditorium}}</td>
+                        <td>{{lesson.startTime}}</td>
+                        <td><input type="button" value="Удалить" ng-click="deleteLesson(lesson.id)"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-danger" role="alert" ng-show="errormessage">{{errormessage}}</div>
+
+        <div>
+            <form role="form" ng-submit="addLesson()">
+                <div class="form-group">
+                    <label for="inputTitle">Название</label>
+                    <input type="text" class="form-control" id="inputTitle" name="inputTitle"  placeholder="Название" ng-model="inputTitle"> </input>
+                </div>
+                <div class="form-group">
+                    <label for="inputWeekday">День недели</label>
+                    <input type="text" class="form-control" id="inputWeekday" name="inputWeekday" ng-model="inputWeekday" placeholder="День недели"></input>
+                </div>
+                <div class="form-group">
+                    <label for="inputType">Тип занятия</label>
+                    <input type="text" class="form-control" id="inputType" name="inputType" ng-model="inputType" placeholder="Тип занятия"></input>
+                </div>
+                <div class="form-group">
+                    <label for="inputAuditorium">Аудитория</label>
+                    <input type="text" class="form-control" id="inputAuditorium" name="inputAuditorium" ng-model="inputAuditorium" placeholder="Аудитория"></input>
+                </div>
+                <div class="form-group">
+                    <label for="inputStartTime">Время начала</label>
+                    <input type="text" class="form-control" id="inputStartTime" name="inputStartTime" ng-model="inputStartTime" placeholder="Время начала"></input>
+                </div>
+                <button type="submit" class="btn btn-default">Добавить</button>
+            </form>
+        </div>
+
+    </body>
+</html>

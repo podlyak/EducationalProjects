@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="lab2.css">
+        <meta name="Viktor Polyakov 4832" charset="utf-8">
+        <title>ТОП-5 соцсетей</title>
+        <script type="text/javascript">
+            var count = 5;
+            add = function() {
+                let newTr = document.querySelector("div.scroll-table-body tr").cloneNode(true);
+                let f = document.getElementById("imageFile").files[0];
+                if (f) {
+                    newTr.querySelector("img").src = URL.createObjectURL(f);
+                }
+                let newTdList = newTr.querySelectorAll("td");
+                count += 1;
+                newTdList[1].innerText = count + ".";
+                newTdList[2].innerText = document.getElementById("nameAdd").value;
+                newTdList[3].innerText = document.getElementById("countPeople").value;
+                newTdList[4].innerText = document.getElementById("year").value;
+                newTdList[5].innerText = "-";
+                let tBody = document.querySelector("div.scroll-table-body tbody");
+                tBody.appendChild(newTr);
+            }
+
+            del = function() {
+                let deletedName = document.getElementById("nameDel").value;
+                let trList = document.querySelectorAll("div.scroll-table-body tr");
+                for (let i = 0; i < trList.length; i++) {
+                    let tdList = trList[i].querySelectorAll("td");
+                    if (tdList[2].innerText == deletedName) {
+                        trList[i].remove();
+                        count -= 1;
+                        update();
+                        break;
+                    }
+                }
+            }
+
+            update = function() {
+                let trList = document.querySelectorAll("div.scroll-table-body tr");
+                for (let i = 0; i < count; i++) {
+                    let tdList = trList[i].querySelectorAll("td");
+                    let rank = i + 1;
+                    tdList[1].innerText = rank + ".";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <h1>ТОП-5 соцсетей по количеству активных пользователей 2020</h1>
+        </header>
+        <br>
+        <div class="scroll-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Место</th>
+                        <th>Название</th>
+                        <th>Количество активных пользователей</th>
+                        <th>Год основания</th>
+                        <th>Столбец объединения</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="scroll-table-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><img src="facebook.png"></td>
+                            <td>1.</td>
+                            <td>Facebook</td>
+                            <td>2,6 млрд</td>
+                            <td>2004</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><img src="youtube.png"></td>
+                            <td>2.</td>
+                            <td>YouTube</td>
+                            <td>2,0 млрд</td>
+                            <td>2005</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><img src="whatsapp.png"></td>
+                            <td>3.</td>
+                            <td>WhatsApp</td>
+                            <td>2,0 млрд</td>
+                            <td colspan = 2>2009</td>
+                        </tr>
+                        <tr>
+                            <td><img src="instagram.png"></td>
+                            <td>4.</td>
+                            <td>Instagram</td>
+                            <td>1,08 млрд</td>
+                            <td>2010</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><img src="tiktok.png"></td>
+                            <td>5.</td>
+                            <td>TikTok</td>
+                            <td>0,8 млрд</td>
+                            <td>2017</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="width:100%">
+            <div style="display:flex;flex-wrap:wrap;flex-direction:row">
+                <div style="width:50%;height:auto;display:inline-block">
+                    <h2>Добавление элемента</h2>
+                    <h3>Выберите фото:</h3>
+                    <input type="file" id="imageFile">
+                    <h3>Введите название:</h3>
+                    <input type="text" id="nameAdd" size="15">
+                    <h3>Введите количество активных пользователей:</h3>
+                    <input type="text" id="countPeople" size="15">
+                    <h3>Введите год основания:</h3>
+                    <input type="text" id="year" size="15">
+                    <br>
+                    <br>
+                    <button onclick="add()">Добавить</button>
+                </div>
+                <div style="width:50%;display:inline-block">
+                    <h2>Удаление элемента</h2>
+                    <h3>Введите название:</h3>
+                    <input type="text" id="nameDel" size="15">
+                    <br>
+                    <br>
+                    <button onclick="del()">Удалить</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <a title="Вернуться" href="lab1_1.html">Классификация социальных сетей и мессенджеров</a>
+        <br><br>
+        <a title="Заполните опрос" href="lab5.html">Опрос</a>
+        <br><br>
+        <a title="Задание с матрицей" href="lab3.html">Матрица</a>
+        <footer>
+            <p>© Поляков В. В., 2021</p>
+        </footer>
+    </body>
+</html>

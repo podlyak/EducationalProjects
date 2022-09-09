@@ -1,0 +1,10 @@
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\bin\Debug\kursachOOP.exe.config
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\bin\Debug\kursachOOP.exe
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\bin\Debug\kursachOOP.pdb
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.csprojAssemblyReference.cache
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.FormSchedule.resources
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.Properties.Resources.resources
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.csproj.GenerateResource.cache
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.csproj.CoreCompileInputs.cache
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.exe
+C:\Users\vikto\Documents\Учеба\ООП\КП\kursachOOP\kursachOOP\obj\Debug\kursachOOP.pdb

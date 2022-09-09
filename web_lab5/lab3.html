@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="lab2.css">
+        <meta name="Viktor Polyakov 4832" charset="utf-8">
+        <title>Матрица javascript</title>
+        <script type="text/javascript">
+            matrix = function(flag) {
+                let divs = document.querySelector("div");
+                while (divs != null) {
+                    divs.remove();
+                    divs = document.querySelector("div");
+                }
+                let rows = 0;
+                let cols = 0;
+                if (flag == 0) {
+                    rows = parseInt(document.getElementById("input_row").value);
+                    cols = parseInt(document.getElementById("input_col").value);
+                }
+                else {
+                    rows = 3;
+                    cols = 3;
+                }
+                for (let i = 0; i < rows; i++) {
+                    var newDiv1 = document.createElement("div");
+                    var newDiv2 = document.createElement("div");
+                    for (let j = 0; j < cols; j++) {
+                        var elInp = document.createElement("input");
+                        var elOut = document.createElement("input");
+                        elInp.setAttribute("type", "text");
+                        elInp.setAttribute("id", "input" + i + j);
+                        elInp.setAttribute("size", "5");
+                        elOut.setAttribute("type", "text");
+                        elOut.setAttribute("id", "output" + i + j);
+                        elOut.setAttribute("size", "5");
+                        newDiv1.appendChild(elInp);
+                        newDiv2.appendChild(elOut);
+                    }
+                    var my_div1 = document.getElementById("emptyStr1");
+                    document.body.insertBefore(newDiv1, my_div1);
+                    var my_div2 = document.getElementById("emptyStr2");
+                    document.body.insertBefore(newDiv2, my_div2);
+                }
+                if (flag == 1) {
+                    document.getElementById("input_row").value = "3";
+                    document.getElementById("input_col").value = "3";
+                    document.getElementById("n").value = "0";
+                    document.getElementById("m").value = "2";
+                    document.getElementById("z").value = "2";
+                    document.getElementById("input00").value = "1";
+                    document.getElementById("input01").value = "2";
+                    document.getElementById("input02").value = "3";
+                    document.getElementById("input10").value = "4";
+                    document.getElementById("input11").value = "5";
+                    document.getElementById("input12").value = "6";
+                    document.getElementById("input20").value = "7";
+                    document.getElementById("input21").value = "8";
+                    document.getElementById("input22").value = "9";
+                }
+            }
+
+            res = function() {
+                let massive = [];
+                let row = [];
+                let rows = parseInt(document.getElementById("input_row").value);
+                let cols = parseInt(document.getElementById("input_col").value);
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        row.push(parseInt(document.getElementById("input"+i+j).value));
+                    }
+                    massive.push(row);
+                    row = [];
+                }
+
+                // номер строки для умножения
+                let N = parseInt(document.getElementById("n").value);
+
+                // число для умножения
+                let Z = parseInt(document.getElementById("z").value);
+
+                // номер строки, к которой прибавляется massive[N]*Z
+                let M = parseInt(document.getElementById("m").value);
+
+                // функция преобразования матрицы по заданию
+                function task(mass, n, z, m) {
+                    for (let j = 0; j < mass[n].length; j++) {
+                        mass[m][j] += mass[n][j] * z;
+                    }
+                    return mass;
+                }
+
+                // образование итоговой матрицы
+                let mat = task(massive, N, Z, M);
+
+                // вывод итоговой матрицы
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        document.getElementById("output"+i+j).value = mat[i][j];
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body leftmargin="20" rightmargin="20">
+        <header>
+            <h1 align="center">Преобразование матрицы</h1>
+        </header>
+        <h2>На основе исходной матрицы сформировать новую, в которой строка матрицы с номером n, умноженная на число z, прибавлена к строке с номером m.</h2>
+        <h3>Введите количество строк в матрице:</h3>
+        <input type="text" id="input_row" size="5">
+        <h3>Введите количество столбцов в матрице:</h3>
+        <input type="text" id="input_col" size="5">
+        <h3>Введите n:</h3>
+        <input type="text" id="n" size="5">
+        <h3>Введите m:</h3>
+        <input type="text" id="m" size="5">
+        <h3>Введите z:</h3>
+        <input type="text" id="z" size="5">
+        <h3>Введите матрицу:</h3>
+        <br id ="emptyStr1">
+        <button onclick="matrix(1)">Инициализация</button>
+        <button onclick="matrix(0)">Ручной ввод</button>
+        <h3 id="res">Результат:</h3>
+        <br id="emptyStr2">
+        <button onclick="res()">Вычислить</button>
+        <br>
+        <br>
+        <br>
+        <a title="Вернуться" href="lab1_2.html">ТОП-5 соцсетей</a>
+        <footer>
+            <p align="right">© Поляков В. В., 2021</p>
+        </footer>
+    </body>
+</html>

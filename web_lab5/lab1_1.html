@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="lab2.css">
+        <meta name="Viktor Polyakov 4832" charset="utf-8">
+        <title>Социальные сети и мессенджеры</title>
+        <script type="text/javascript">
+            changeColor = function() {
+                if (window.getComputedStyle(document.body, null).getPropertyValue('background-color') == 'rgb(245, 245, 220)') {
+                    document.body.style.backgroundColor = 'rgb(255, 228, 225)';
+                }
+                else {
+                    document.body.style.backgroundColor = 'rgb(245, 245, 220)';
+                }
+            }
+
+            let timerId = 0;
+            time = function() {
+                let currentDate = new Date();
+                let hours = currentDate.getHours();
+                let minutes = currentDate.getMinutes();
+                let seconds = currentDate.getSeconds();
+                let time_cur  = ((hours < 10) ? "0" : "" ) + hours + ":";
+                time_cur += ((minutes < 10) ? "0" : "" ) + minutes;
+                let rad = document.getElementsByName('sec');
+                if (rad[0].checked) {
+                    time_cur  += ":" + ((seconds < 10) ? "0" : "" ) + seconds;
+                }
+                timer = document.getElementById("timer");
+                timer.innerText = "Time: " + time_cur;
+            }
+        </script>
+        <style>
+            ol {
+                color: black;
+                font-family: 'Times New Roman', serif;
+                font-size: 90%;
+                border-top: 2px dashed #8FBC8F;
+                list-style: none;
+                counter-reset: li;
+            }
+            li:before {
+                counter-increment: li;
+                content: counters(li, ".") ". ";
+            }
+            #first_p {
+                color: #FF6A6A;
+            }
+            p.next_p {
+                color: #8B4500;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Социальные сети и мессенджеры</h1>
+        </header>
+        <p id="first_p">Понятия социальные сети и мессенджеры включают в себя различные виды интернет-площадок, необходимых для обмена информацией между пользователями.</p>
+        <p class="next_p">В первую очередь, самым известным, и, как правило, самым многочисленным являются социальные сети (например, ВКонтакте, Одноклассники, Facebook и др.), также популярными площадками являются различные блог-платформы (самой известной является LiveJournal). Кроме этого выделяют следующие площадки: микроблоги (ярким примером служит Twitter), Wikipedia, видеохостинги (Youtube и др.). Наиболее быстрыми темпами растет аудитория мессенджеров, таких как WhatsApp, Viber, WeChat и Telegram. Данные интернет площадки собирают многомиллионную аудиторию пользователей, которые проводят там большое количество свободного времени.</p>
+        <p class="next_p">Выше перечислены лишь самые популярные площадки, однако на этом не стоит останавливаться, так как социальные медиа по-прежнему развиваются, каждый месяц программисты придумывают что-то новое и выводят на рынок.</p>
+        <p class="next_p">Практически все современные специалисты по социальным медиа придерживаются следующее классификации, согласно которой выделяют 8 разновидностей социальных медиа.</p>
+        <br>
+        <h3 style="text-decoration: underline">Классификация социальных сетей и мессенджеров: </h3>
+        <ol style="border-top: 0px dashed #8FBC8F;">
+            <li>Мультимедийные хостинги
+                <ol>
+                    <li>YouTube</li>
+                    <li>RuTube</li>
+                    <li>Видео@Mail.Ru</li>
+                    <li>Яндекс.Видео</li>
+                </ol>
+            </li>
+            <li>Блоги и блог-платформы
+                <ol>
+                    <li>Livejournal</li>
+                    <li>Twitter</li>
+                    <li>WordPress</li>
+                    <li>Wix</li>
+                    <li>Blogger</li>
+                    <li>Яндекс.Дзен</li>
+                </ol>
+            </li>
+            <li>Виртуальные онлайн игры
+                <ol>
+                    <li>World of Warcraft</li>
+                    <li>Counter-Strike: Global Offensive</li>
+                    <li>Dota 2</li>
+                    <li>War Thunder</li>
+                    <li>Warface</li>
+                    <li>World of Tanks</li>
+                    <li>League of Legends</li>
+                </ol>
+            </li>
+            <li>Социальные сети и мессенджеры для общения
+                <ol>
+                    <li>Отечественные
+                        <ol>
+                            <li>ВКонтакте</li>
+                            <li>Одноклассники</li>
+                            <li>В кругу друзей</li>
+                            <li>Мой мир</li>
+                            <li>Мир тесен</li>
+                        </ol>
+                    </li>
+                    <li>Зарубежные
+                        <ol>
+                            <li>Facebook</li>
+                            <li>Telegram</li>
+                            <li>Viber</li>
+                            <li>WhatsApp</li>
+                            <li>Skype</li>
+                            <li>Discord</li>
+                            <li>Zoom</li>
+                            <li>ICQ</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>Интернет порталы с использованием совместного контента
+                <ol>
+                    <li>Wikipedia</li>
+                    <li>Google Docs</li>
+                    <li>Stixy</li>
+                    <li>Project2Manage</li>
+                    <li>Bubbl.us</li>
+                </ol>
+            </li>
+            <li>Сайты знакомств
+                <ol>
+                    <li>BADOO</li>
+                    <li>TINDER</li>
+                    <li>MAMBA</li>
+                </ol>
+            </li>
+            <li>Геосоциальные сервисы
+                <ol>
+                    <li>Foursquare</li>
+                    <li>Tripadvisor</li>
+                    <li>Яндекс.Город</li>
+                    <li>Foodspottind</li>
+                </ol>
+            </li>
+            <li>Сервисы по редактированию коротких видео
+                <ol>
+                    <li>Instagram</li>
+                    <li>Snapchat</li>
+                    <li>Tik Tok</li>
+                    <li>Likee</li>
+                </ol>
+            </li>
+        </ol>
+        <br>
+        <a title="Нажмите на меня!" href="lab1_2.html">ТОП-5 соцсетей по количеству активных пользователей 2020</a>
+        <br>
+        <br>
+        <div align="right">
+            <button onclick="changeColor()">Изменить цвет фона</button>
+            <button onclick="alert ('Создатель сайта: Поляков Виктор Валерьевич\nГруппа: 4832')">Информация</button>
+        </div>
+        <br>
+        <div align="right">
+            <button onclick="if (timerId) {clearInterval(timerId);} timerId = setInterval(time, 1000)">Показать время</button>
+            <p><input name="sec" type="radio" value="yes"> С секундами</p>
+            <p><input name="sec" type="radio" value="no" checked> Без секунд</p>
+        </div>
+        <h3 id="timer"></h3>
+        <footer>
+            <p>© Поляков В. В., 2021</p>
+        </footer>
+    </body>
+</html>
